@@ -11,10 +11,12 @@ function jump() {
 }
 
 let checkDead = setInterval(function(){
-    let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-    let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"))
+    let characterBottom = parseInt(window.getComputedStyle(character).getPropertyValue("bottom"));
+    let characterLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
+    let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
-    if (blockLeft < 20 && blockLeft > 0 && characterTop >= 130) {
+    // Adjust the condition to check if the character's bottom is too close to the block
+    if (blockLeft < (characterLeft + 20) && blockLeft > (characterLeft) && characterBottom < 20) {
         alert("You LOSE!");
     }
 

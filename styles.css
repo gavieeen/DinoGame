@@ -1,39 +1,56 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-#game{
-    width: 500px;
-    height: 200px;
-    border: 1px solid black;
+
+body {
+    height: 100vh;
+    background-image: url('bgi2.png');
+    background-size: cover;
+    background-position: center top 20%;
+    filter: brightness(1.2) contrast(1.2);
 }
-#character{
-    width: 20px;
-    height: 50px;
-    background-color: red;
-    position: relative;
-    top: 150px;
-    /* animation: jump 500ms infinite; */
+
+#game {
+    width: 100%;
+    height: 90vh; /* Set the height to get vertical position of game elements */
+    /* border: 1px solid black; */
+    position: relative; /* Add position: relative; to allow absolute positioning inside */
 }
-.animate{
+
+#character {
+    width: 100px;
+    height: 100px;
+    background: url('character.png') no-repeat center center; /* Replace with the path to your character image */
+    background-size: cover;
+    position: absolute; /* Change to absolute positioning */
+    bottom: 0; /* Align the character to the bottom of the game container */
+    left: 25%;
+}
+
+.animate {
     animation: jump 500ms;
 }
+
 @keyframes jump {
-    0%{top: 150px;}
-    30%{top: 100px;}
-    70%{top: 100px;}
-    100%{top: 150px;}
+    0% { bottom: 0; }
+    30% { bottom: 150px; }
+    70% { bottom: 150px; }
+    100% { bottom: 0; }
 }
-#block{
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    position: relative;
-    top: 130px;
-    left: 480px;
+
+#block {
+    width: 100px;
+    height: 100px;
+    background: url('block.png') no-repeat center center; /* Replace with the path to your block image */
+    background-size: cover;
+    position: absolute; /* Change to absolute positioning */
+    bottom: 0; /* Align the block to the top of the game container */
+    left: 100%; /* Start the block outside the right edge */
     animation: block 1s infinite linear;
 }
+
 @keyframes block {
-    0%{left: 480px;}
-    100%{left: -40px}
+    0% { left: 100%; }
+    100% { left: -40px; }
 }
